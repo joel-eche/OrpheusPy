@@ -1,0 +1,13 @@
+body{
+    background-color:white;
+}
+
+.navbar{
+    border-radius:0;
+}
+
+.navbar-brand{
+    padding-left:30px;
+    padding-right:30px;
+    font-family:'Satisfy',cursive;
+}
