@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-from apps.music.views import DetailView, AlbumCreate, AlbumUpdate, AlbumDelete
+from apps.music.views import DetailView, AlbumCreate, AlbumUpdate, AlbumDelete, UserFormView
 from apps.music.views import index, detail, favorite, IndexView
 
 app_name='music'
@@ -8,6 +8,8 @@ app_name='music'
 urlpatterns=[
     #/music/
     url(r'^$',IndexView.as_view(),name='index'),
+
+    url(r'^register/$',UserFormView.as_view(),name='register'),
 
     #/music/<album_id>/
     url(r'^(?P<pk>[0-9]+)/$',DetailView.as_view(),name='detail'),
