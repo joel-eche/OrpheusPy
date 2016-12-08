@@ -3,8 +3,12 @@ from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
 from django.template import loader
+from django.urls import reverse_lazy
+from django.views.generic import CreateView
+from django.views.generic import DeleteView
 from django.views.generic import DetailView
 from django.views.generic import ListView
+from django.views.generic import UpdateView
 
 from apps.music.models import Album,Song
 
@@ -44,9 +48,19 @@ class IndexView(ListView):
     model = Album
     template_name = 'music/index.html'
     context_object_name = 'all_albums'
-    def get_queryset(self):
-        return Album.objects.all()
 
 class DetailView(DetailView):
     model = Album
     template_name = 'music/detail.html'
+
+class AlbumCreate(CreateView):
+    model=Album
+    fields=['artist','album_title','genre','album_logo']
+
+class AlbumUpdate(UpdateView):
+    model=Album
+    fields=['artist','album_title','genre','album_logo']
+
+class AlbumDelete(DeleteView):
+    model=Album
+    success_url = reverse_lazy('music:index')

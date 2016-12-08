@@ -1,38 +1,92 @@
 {% extends 'base/base.html' %}
 
 {% block title %}
-    Album Details
+    {{album}}
 {% endblock%}
+
+{% block albums_active %}
+    active
+{% endblock%}
+
 
 {% block body%}
+<div class="container-fluid songs-container">
+    <div class="row">
 
-    <img src="{{album.album_logoX}}"/>
-    <h1>{{album.album_title}}</h1>
-    <h3>{{album.artist}}</h3>
+        <!--Left album info-->
+        <div class="class">
+            <div class="col-sm-4 col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <a href="{% url 'music:detail' album.id %}">
+                            {% if album.album_logo %}
+                                <img src="{{album.album_logo}}" class="img-responsive"/>
+                            {% else %}
+                                <h3>No image to display u.u</h3>
+                            {% endif %}
+                        </a>
+                        <h1>{{album.album_title}}</h1>
+                        <h3>{{album.artist}}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Right songs info-->
+        <div class="col-sm-8 col-md-9">
+            <ul class="nav nav-pills">
+                <li role="presentation" class="active"><a href="{% url 'music:detail' album.id %}">View all</a></li>
+                <li role="presentation"><a href="{% url 'music:detail' album.id %}">Add new song</a></li>
+            </ul>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3>All songs</h3>
+                    {% if error_message %}
+                    <p><strong>{{error_message}}</strong></p>
+                    {% endif %}
+                </div>
 
-    {% if error_message %}
-        <p><strong>{{error_message}}</strong></p>
-    {% endif %}
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Audio file</th>
+                            <th>Favorite</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for song in album.song_set.all %}
+                        <tr>
+                            <td>{{song.song_title}}</td>
+                            <td>
+                                <a target="_blank" href="">
+                                    <button class="btn btn-success btn-xs">
+                                        <span class="glyphicon glyphicon-play">&nbsp; Play</span>
+                                    </button>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{% url 'music:favorite' song.id %}" class="btn-favorite">
+                                    <span class="glyphicon glyphicon-star" {% if song.is_favorite %}active{% endif %}></span>
+                                </a>
+                            </td>
+                            <td>
+                                <form action="" method="post" style="display:inline">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="song:id" value="{{song_id}}">
+                                    <button type="submit" class="btn btn-danger btn-xs">
+                                        <span class="glyphicon glyphicon-remove"></span>&nbsp; Delete
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-    <form action="{% url 'music:favorite' album.id %}" method="post">
-        {% csrf_token %}
-        {% for song in album.song_set.all %}
-            <input type="radio" id="song{{forloop.counter}}" name="song" value="{{ song.id }}">
-            <label for="song{{forloop.counter}}">
-                {{song.song_title}}
-                {% if song.is_favorite %}
-                    <img src="http://www.free-icons-download.net/images/favorite-icon-12040.png">
-                {% endif %}
-            </label>
-        {% endfor %}
-        <input type="submit" value="Favorite">
-    </form>
+    </div>
+</div>
+
 {% endblock%}
-
-<!--
-<ul>
-    {-% for song in album.song_set.all %-}
-    <li>{-{song.song_title}} - {{song.file_type}-}</li>
-    {-% endfor %-}
-</ul>
--->
