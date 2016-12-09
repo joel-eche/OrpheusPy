@@ -1,4 +1,4 @@
-#MorpheusPy
+#OrpheusPy
 ##Es una app, en la que el usuario puede subir, administrar y reproducir su música
 ###Realizada con Django, para efectos de práctica
 
