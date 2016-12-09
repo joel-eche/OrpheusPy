@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b29dffc0-7879-4c0a-ac38-ac61bf9993a3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/images/lineas.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/music/song_detail.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/music/song_form.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/music/song_list.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/media/Dias-Nuevos-cover.jpg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/README.txt" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OrpheusPy/urls.py" afterPath="$PROJECT_DIR$/OrpheusPy/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/music/models.py" afterPath="$PROJECT_DIR$/apps/music/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/music/urls.py" afterPath="$PROJECT_DIR$/apps/music/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/apps/music/views.py" afterPath="$PROJECT_DIR$/apps/music/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/base/base.html" afterPath="$PROJECT_DIR$/templates/base/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/music/detail.html" afterPath="$PROJECT_DIR$/templates/music/detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/music/index.html" afterPath="$PROJECT_DIR$/templates/music/index.html" />
     </list>
     <ignored path="OrpheusPy.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,7 +33,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/OrpheusPy/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="363">
@@ -53,6 +41,16 @@
               <folding>
                 <element signature="e#643#675#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="26" column="76" selection-start-line="26" selection-start-column="76" selection-end-line="26" selection-end-column="76" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -166,13 +164,15 @@
         <option value="$PROJECT_DIR$/templates/base/base.html" />
         <option value="$PROJECT_DIR$/apps/music/views.py" />
         <option value="$PROJECT_DIR$/OrpheusPy/urls.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="30" />
+    <option name="x" value="395" />
+    <option name="y" value="109" />
     <option name="width" value="1014" />
-    <option name="height" value="728" />
+    <option name="height" value="672" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -539,10 +539,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="30" y="0" width="1014" height="728" extended-state="0" />
+    <frame x="395" y="109" width="1014" height="672" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21106558" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.352459" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41020408" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -880,6 +880,14 @@
           <folding>
             <element signature="e#643#675#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="76" selection-start-line="26" selection-start-column="76" selection-end-line="26" selection-end-column="76" />
+          <folding />
         </state>
       </provider>
     </entry>
