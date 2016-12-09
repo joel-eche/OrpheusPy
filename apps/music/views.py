@@ -68,6 +68,28 @@ class AlbumDelete(DeleteView):
     model=Album
     success_url = reverse_lazy('music:index')
 
+class SongListView(ListView):
+    model = Song
+    template_name = 'music/song_list.html'
+    context_object_name = 'all_songs'
+
+class SongDetailView(DetailView):
+    model = Song
+    template_name = 'music/song_detail.html'
+
+class SongCreate(CreateView):
+    model=Song
+    fields=['album','file_type','song_title','is_favorite','audio']
+
+class SongUpdate(UpdateView):
+    model=Song
+    fields=['album','file_type','song_title','is_favorite','audio']
+
+class SongDelete(DeleteView):
+    model=Song
+    success_url = reverse_lazy('music:index')
+
+
 class UserFormView(View):
     form_class=UserForm
     template_name='music/registration_form.html'

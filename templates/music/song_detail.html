@@ -1,0 +1,57 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+    {{album}}
+{% endblock%}
+
+{% block albums_active %}
+    active
+{% endblock%}
+
+#'album','file_type','song_title','is_favorite','audio'
+{% block body%}
+<div class="container-fluid songs-container">
+    <div class="row">
+
+        <!--Song info-->
+        <div class="col-md-offset-2">
+            <div class="col-sm-10 col-md-10">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <a href="#">
+                            {% if song.album.album_logo %}
+                                <img src="{{song.album.album_logo.url}}" class="img-responsive col-sm-4 col-md-2"/>
+                            {% else %}
+                                <img src="../../../static/images/lyre.png" class="img-responsive"/>
+                            {% endif %}
+                        </a>
+                        {% if album.is_favorite %}<span class="glyphicon glyphicon-star"></span>{% endif %}
+                        <h1>{{song.song_title}}</h1>
+                        <!--Edit song-->
+                        <a class="btn btn-success" role="button" href="{% url 'music:song-update' song.id %}">
+                            <span class="glyphicon glyphicon-edit"></span>&nbsp;Edit
+                        </a>
+                        <!--Delete form-->
+                        <form action="{% url 'music:song-delete' song.id %}" method="post" style="display:inline">
+                            {% csrf_token %}
+                            <input type="hidden" name="song_id" value="{{song.id}}"/>
+                            <button type="submit"  class="btn btn-danger">
+                                <spam class="glyphicon glyphicon-trash"></spam>&nbsp;Delete
+                            </button>
+                        </form>
+                        <h3>{{song.fyle_type}}</h3>
+                        {% if song.audio %}
+                            <audio src="{{song.audio.url}}" controls>
+                                <p>Orale wey, tu navegador no implementa el elemento audio :( </p>
+                            </audio>
+                        {% else %}
+                            <h3>No audio file u.u</h3>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock%}

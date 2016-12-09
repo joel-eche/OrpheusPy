@@ -3,18 +3,10 @@
 
 {% block body%}
     {% if all_albums %}
-    <!--<div class="albums-container container-fluid">
-        Albums
-        <div class="row">
-            <div class="col-sm-12">
-                <h3></h3>
-            </div>
-        </div>
-    </div>-->
 
     <ul>
         {% for album in all_albums %}
-        <div class="col-sm-4 col-lg-2">
+        <div class="col-sm-4 col-lg-3">
             <div class="thumbnail">
                 <a href="{% url 'music:detail' album.id %}">
                     <img src="{{album.album_logo.url}}" alt="" class="img-responsive">
@@ -32,20 +24,22 @@
                     <form action="{% url 'music:album-delete' album.id %}" method="post" style="display:inline">
                         {% csrf_token %}
                         <input type="hidden" name="album_id" value="{{album_id}}"/>
-                        <buttton class="btn btn-default btn-sm">
+                        <buttton type="type" class="btn btn-default btn-sm">
                             <spam class="glyphicon glyphicon-trash"></spam>
                         </buttton>
                     </form>
-                    <!--Favorite album-->
-                    <a class="btn btn-default btn-sm btn-favorite" role="button" href="{% url 'music:favorite' album.id %}">
-                        <span class="glyphicon glyphicon-star {% if album.is_favorite %}active{% endif %}"></span>
-                    </a>
                 </div>
             </div>
         </div>
         {% endfor %}
     </ul>
     {% else %}
-    <h3>You don't have any albums :(</h3>
+    <div class="row col-md-5" style="margin:auto">
+        <h3>You don't have any albums :(</h3>
+        <a class="btn btn-default" role="button" href="{% url 'music:album-add' %}">
+            <span class="glyphicon glyphicon-plus"></span>
+        </a>
+    </div>
+
     {% endif %}
 {% endblock %}

@@ -34,9 +34,10 @@
         <!--Right songs info-->
         <div class="col-sm-8 col-md-9">
             <ul class="nav nav-pills">
-                <li role="presentation" class="active"><a href="{% url 'music:detail' album.id %}">View all</a></li>
-                <li role="presentation"><a href="{% url 'music:detail' album.id %}">Add new song</a></li>
+                <li role="presentation" class="active"><a href="{% url 'music:index' %}">View all</a></li>
+                <li role="presentation"><a href="{% url 'music:song-add' %}">Add new song</a></li>
             </ul>
+            <br>
             <div class="panel panel-default">
                 <div class="panel-body">
                     <h3>All songs</h3>
@@ -59,19 +60,23 @@
                         <tr>
                             <td>{{song.song_title}}</td>
                             <td>
-                                <a target="_blank" href="">
+                                <a href="{% url 'music:song-detail' song.id %}">
                                     <button class="btn btn-success btn-xs">
                                         <span class="glyphicon glyphicon-play">&nbsp; Play</span>
                                     </button>
                                 </a>
                             </td>
                             <td>
-                                <a href="{% url 'music:favorite' song.id %}" class="btn-favorite">
-                                    <span class="glyphicon glyphicon-star" {% if song.is_favorite %}active{% endif %}></span>
+                                <a class="btn-favorite">
+                                    {% if song.is_favorite %}
+                                        <span class="glyphicon glyphicon-star" ></span>
+                                    {% else %}
+                                        <span class="glyphicon glyphicon-cloud" ></span>
+                                    {% endif %}
                                 </a>
                             </td>
                             <td>
-                                <form action="" method="post" style="display:inline">
+                                <form action="{% url 'music:song-delete' song.id %}" method="post" style="display:inline">
                                     {% csrf_token %}
                                     <input type="hidden" name="song:id" value="{{song_id}}">
                                     <button type="submit" class="btn btn-danger btn-xs">
